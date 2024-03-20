@@ -1,4 +1,0 @@
-Log file created at: 2024/03/20 13:19:06
-Running on machine: hesam-ASUS-TUF-Gaming-F17-FX707ZU4-FX707ZU4
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-I0320 13:19:06.584204 11303 utils.hpp:15] Time taken by Kernel Execution: 83.326000 microseconds

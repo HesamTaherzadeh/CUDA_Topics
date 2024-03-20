@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -rdynamic CMakeFiles/CUDA_Basics.dir/main.cpp.o -o CUDA_Basics 
