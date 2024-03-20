@@ -1,0 +1,5 @@
+/home/hesam/Desktop/CUDA_Topics/basics/build/CMakeFiles/vector_addition.dir
+/home/hesam/Desktop/CUDA_Topics/basics/build/CMakeFiles/package.dir
+/home/hesam/Desktop/CUDA_Topics/basics/build/CMakeFiles/package_source.dir
+/home/hesam/Desktop/CUDA_Topics/basics/build/CMakeFiles/edit_cache.dir
+/home/hesam/Desktop/CUDA_Topics/basics/build/CMakeFiles/rebuild_cache.dir
