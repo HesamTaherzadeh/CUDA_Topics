@@ -7,6 +7,39 @@ cmake ..
 make
 ```
 
+# hello_world.cu
+## CUDA Thread and Block Indices
+
+![Alt Text](images/CUDA-GridBlockThread-Structure.png)
+
+CUDA organizes threads into blocks, forming a grid. Each thread and block has a unique index.
+
+### Thread Indices
+
+- Threads are organized into a grid.
+- Each thread has a unique `(x, y, z)` index within the grid.
+- Accessed using `threadIdx.x`, `threadIdx.y`, `threadIdx.z`.
+
+### Block Indices
+
+- Blocks are grouped within the grid.
+- Each block has a unique `(x, y, z)` index within the grid.
+- Accessed using `blockIdx.x`, `blockIdx.y`, `blockIdx.z`.
+
+### Total Thread Indices
+
+- To calculate the global index of a thread within the grid:
+
+```C++
+int idx = threadIdx.x + blockIdx.x * blockDim.x;
+int idy = threadIdx.y + blockIdx.y * blockDim.y;
+int idz = threadIdx.z + blockIdx.z * blockDim.z;
+```
+
+Understanding thread and block indices is essential for writing efficient CUDA kernels.
+
+
+---
 
 # Vector Addition Benchmark with CUDA and CPU (vector_addition.cu)
 
@@ -44,6 +77,8 @@ The program benchmarks vector addition for two different vector lengths: 100 and
 From these results, we can observe that for smaller vector lengths (100), the CPU implementation significantly outperforms the CUDA implementation. This could be due to the overhead of transferring data to and from the GPU memory outweighing the computational gains of parallelization for such small data sizes.
 
 However, for larger vector lengths (1000000000), the CUDA implementation outperforms the CPU implementation. This is expected as the parallel nature of CUDA allows it to handle large amounts of data more efficiently than the CPU.
+
+---
 
 # Shared memory between all the threads and reduction (sum_vector.cu)
 
