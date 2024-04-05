@@ -40,7 +40,24 @@ Understanding thread and block indices is essential for writing efficient CUDA k
 
 
 ---
+## Accessing Unique Elements in CUDA (access_unique_grid.cu)
 
+This code exemplifies how to access unique elements in CUDA using thread indices and block dimensions.
+
+### Description
+The CUDA kernel `printArray` assigns unique thread indices and block dimensions to each element in the array. It then copies the array elements along with their corresponding thread indices and block dimensions to output arrays.
+
+### Thread Indices (`threadIdx_x` and `threadIdx_y`)
+- `threadIdx_x`: Stores the `x` indices of threads within their blocks.
+- `threadIdx_y`: Stores the `y` indices of threads within their blocks.
+
+### Block Dimensions (`blockDim_x`)
+- `blockDim_x`: Records the number of threads in the x-dimension of each block.
+
+### Unique Index (`idx`)
+- `idx`: Provides a unique identifier for each thread's processed element, computed using thread indices and block dimensions.
+
+---
 # Vector Addition Benchmark with CUDA and CPU (vector_addition.cu)
 
 This repository contains a simple program for benchmarking vector addition using both CUDA and CPU implementations. The program calculates the element-wise sum of two vectors and compares the performance of CUDA and CPU approaches.
