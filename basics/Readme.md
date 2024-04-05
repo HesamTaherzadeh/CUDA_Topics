@@ -57,6 +57,10 @@ The CUDA kernel `printArray` assigns unique thread indices and block dimensions 
 ### Unique Index (`idx`)
 - `idx`: Provides a unique identifier for each thread's processed element, computed using thread indices and block dimensions.
 
+```C++
+idx = threadIdx.x + threadIdx.y * blockDim.x
+```
+
 ---
 # Vector Addition Benchmark with CUDA and CPU (vector_addition.cu)
 
