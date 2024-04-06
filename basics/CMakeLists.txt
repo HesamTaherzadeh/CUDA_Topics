@@ -47,3 +47,10 @@ set_property(TARGET hello_world PROPERTY CUDA_ARCHITECTURES 35 37 50 52 60 61 70
 
 # Link CUDA libraries for hello_world
 target_link_libraries(hello_world CUDA::cudart)
+
+add_executable(access access_unique_grid.cu)
+
+set_property(TARGET access PROPERTY CUDA_ARCHITECTURES 35 37 50 52 60 61 70 75)
+
+target_link_libraries(access CUDA::cudart)
+

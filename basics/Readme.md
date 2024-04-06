@@ -54,14 +54,13 @@ The CUDA kernel `printArray` assigns unique thread indices and block dimensions 
 ### Block Dimensions (`blockDim_x`)
 - `blockDim_x`: Records the number of threads in the x-dimension of each block.
 
-### Unique Index (`idx`)
-- `idx`: Provides a unique identifier for each thread's processed element, computed using thread indices and block dimensions.
+### Unique Index Creation
+
+- For a unique index calculation within the grid, add the block offset and row offset to the thread indices:
 
 ```C++
-idx = threadIdx.x + threadIdx.y * blockDim.x
+int unique_idx = threadIdx.x + blockIdx.x * blockDim.x + blockIdx.y * blockDim.x * gridDim.x + threadIdx.y * blockDim.x * gridDim.x * blockDim.y;
 ```
-
----
 # Vector Addition Benchmark with CUDA and CPU (vector_addition.cu)
 
 This repository contains a simple program for benchmarking vector addition using both CUDA and CPU implementations. The program calculates the element-wise sum of two vectors and compares the performance of CUDA and CPU approaches.
