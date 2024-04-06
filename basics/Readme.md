@@ -61,6 +61,27 @@ The CUDA kernel `printArray` assigns unique thread indices and block dimensions 
 ```C++
 int unique_idx = threadIdx.x + blockIdx.x * blockDim.x + blockIdx.y * blockDim.x * gridDim.x + threadIdx.y * blockDim.x * gridDim.x * blockDim.y;
 ```
+
+| ThreadIdx_x | ThreadIdx_y | BlockDim_x | Row Offset | Block Offset | TID | Array Index | Array Element |
+|--------------|--------------|-------------|-------------|----------------|-----|--------------|----------------|
+| 0            | 0            | 2           | 0           | 0              | 0   | 0            | 0              |
+| 1            | 0            | 2           | 0           | 0              | 1   | 1            | 1              |
+| 0            | 1            | 2           | 0           | 0              | 2   | 2            | 2              |
+| 1            | 1            | 2           | 0           | 0              | 3   | 3            | 3              |
+| 0            | 0            | 2           | 0           | 4              | 0   | 4            | 4              |
+| 1            | 0            | 2           | 0           | 4              | 1   | 5            | 5              |
+| 0            | 1            | 2           | 0           | 4              | 2   | 6            | 6              |
+| 1            | 1            | 2           | 0           | 4              | 3   | 7            | 7              |
+| 0            | 0            | 2           | 8           | 0              | 0   | 8            | 8              |
+| 1            | 0            | 2           | 8           | 0              | 1   | 9            | 9              |
+| 0            | 1            | 2           | 8           | 0              | 2   | 10           | 10             |
+| 1            | 1            | 2           | 8           | 0              | 3   | 11           | 11             |
+| 0            | 0            | 2           | 8           | 4              | 0   | 12           | 12             |
+| 1            | 0            | 2           | 8           | 4              | 1   | 13           | 13             |
+| 0            | 1            | 2           | 8           | 4              | 2   | 14           | 14             |
+| 1            | 1            | 2           | 8           | 4              | 3   | 15           | 15             |
+
+
 # Vector Addition Benchmark with CUDA and CPU (vector_addition.cu)
 
 This repository contains a simple program for benchmarking vector addition using both CUDA and CPU implementations. The program calculates the element-wise sum of two vectors and compares the performance of CUDA and CPU approaches.
