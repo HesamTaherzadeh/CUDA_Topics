@@ -24,4 +24,15 @@ target_link_libraries(dot_product CUDA::cudart)
 find_package(glog REQUIRED)
 target_link_libraries(dot_product glog::glog)
 
+add_executable(single_gs single_step_gs.cu)
+
+# Set CUDA architecture
+set_property(TARGET single_gs PROPERTY CUDA_ARCHITECTURES 35 37 50 52 60 61 70 75)
+
+# Link CUDA libraries
+target_link_libraries(single_gs CUDA::cudart)
+
+# Find glog package
+find_package(glog REQUIRED)
+target_link_libraries(single_gs glog::glog)
 
