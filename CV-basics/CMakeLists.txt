@@ -23,3 +23,14 @@ set_target_properties(PhotometricLoss PROPERTIES
     CUDA_SEPARABLE_COMPILATION ON
     CUDA_ARCHITECTURES "50;60;70;75;80"
 )
+
+find_package(OpenCV REQUIRED)
+add_executable(GaussianProj gaussian_projection.cu)
+
+target_include_directories(GaussianProj PRIVATE ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(GaussianProj PRIVATE ${OpenCV_LIBS} ${CUDA_LIBRARIES})
+
+set_target_properties(GaussianProj PROPERTIES
+    CUDA_SEPARABLE_COMPILATION ON
+    CUDA_ARCHITECTURES "50;60;70;75;80"
+)
